@@ -1,4 +1,4 @@
-# Docker container for Scanpy and Jupyter
+# Docker container for my notebook
 
 Dockerfile for my own use.
 
