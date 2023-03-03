@@ -17,6 +17,9 @@ RUN conda install "jupyterlab>=3" "ipywidgets>=7.6" && \
 # install styleframe
 RUN pip install styleframe
 
+# install upsetplot
+RUN pip install UpSetPlot==0.8.0
+
 # install MetBrewer
 RUN git clone https://github.com/BlakeRMills/MetBrewer.git && \
     cd MetBrewer/Python/ && \
