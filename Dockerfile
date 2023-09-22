@@ -14,13 +14,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN conda install "jupyterlab>=3" "ipywidgets>=7.6" && \
     conda install -c conda-forge -c plotly jupyter-dash
 
-# install styleframe
-RUN pip install styleframe
+# install pysam
+RUN conda install -c bioconda pysam==0.21.0
 
-# install upsetplot
-RUN pip install UpSetPlot==0.8.0
-
-# install MetBrewer
-RUN git clone https://github.com/BlakeRMills/MetBrewer.git && \
-    cd MetBrewer/Python/ && \
-    python setup.py install
+# install pybedtools
+RUN conda install -c bioconda pybedtools==0.9.1
