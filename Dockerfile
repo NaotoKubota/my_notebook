@@ -30,4 +30,7 @@ RUN apt update && \
     fc-cache -fv && \
     rm -rf ttf-mscorefonts-installer_3.8_all.deb
 
+# Install pyCircos
+RUN pip install python-circos
+
 CMD ["bash"]
