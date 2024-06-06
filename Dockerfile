@@ -1,5 +1,5 @@
 ###############################################################
-# Dockerfile to build container images for my notebook
+# Dockerfile to build container images for my notebook (v1.6)
 # Based on jupyter/scipy-notebook
 ###############################################################
 
@@ -32,5 +32,8 @@ RUN apt update && \
 
 # Install pyCircos
 RUN pip install python-circos
+
+# Install UpsetPlot
+RUN pip install upsetplot==0.9.0
 
 CMD ["bash"]
