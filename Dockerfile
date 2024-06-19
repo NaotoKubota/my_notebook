@@ -1,5 +1,5 @@
 ###############################################################
-# Dockerfile to build container images for my notebook (v1.6)
+# Dockerfile to build container images for my notebook (v1.6.1)
 # Based on jupyter/scipy-notebook
 ###############################################################
 
@@ -35,5 +35,23 @@ RUN pip install python-circos
 
 # Install UpsetPlot
 RUN pip install upsetplot==0.9.0
+
+# Install nbextensions
+RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
+    jupyter contrib nbextension install --system && \
+    jupyter nbextensions_configurator enable --system && \
+    jupyter nbextension enable varInspector/main --system && \
+    jupyter nbextension enable hinterland/hinterland --system && \
+    jupyter nbextension enable toc2/main --system && \
+    jupyter nbextension enable livemdpreview/livemdpreview --system && \
+    jupyter nbextension enable collapsible_headings/main --system && \
+    jupyter nbextension enable execute_time/ExecuteTime --system && \
+    jupyter nbextension enable codefolding/main --system
+
+# Install jupyterthemes
+RUN conda install -c conda-forge jupyterthemes
+
+# Change the default theme
+RUN jt -t onedork -fs 125 -tfs 11 -nfs 115 -cellw 88% -T
 
 CMD ["bash"]
