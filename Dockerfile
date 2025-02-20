@@ -1,5 +1,5 @@
 ###############################################################
-# Dockerfile to build container images for my notebook (v1.6.1)
+# Dockerfile to build container images for my notebook (v1.6.2)
 # Based on jupyter/scipy-notebook
 ###############################################################
 
@@ -35,6 +35,9 @@ RUN pip install python-circos
 
 # Install UpsetPlot
 RUN pip install upsetplot==0.9.0
+
+# Install GSEApy
+RUN pip install gseapy==1.1.5
 
 # Install nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
