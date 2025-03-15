@@ -1,5 +1,5 @@
 ###############################################################
-# Dockerfile to build container images for my notebook (v1.6.2)
+# Dockerfile to build container images for my notebook (v1.6.3)
 # Based on jupyter/scipy-notebook
 ###############################################################
 
@@ -56,5 +56,8 @@ RUN conda install -c conda-forge jupyterthemes
 
 # Change the default theme
 RUN jt -t onedork -fs 125 -tfs 11 -nfs 115 -cellw 88% -T
+
+# Remove font cache
+RUN rm -rf /home/jovyan/.cache/matplotlib/fontlist-v330.json
 
 CMD ["bash"]
