@@ -1,5 +1,5 @@
 ###############################################################
-# Dockerfile to build container images for my notebook (v1.6.3)
+# Dockerfile to build container images for my notebook (v1.6.4)
 # Based on jupyter/scipy-notebook
 ###############################################################
 
@@ -39,6 +39,9 @@ RUN pip install upsetplot==0.9.0
 # Install GSEApy
 RUN pip install gseapy==1.1.5
 
+# Install ete4
+RUN pip install ete4==4.3.0
+
 # Install nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions && \
     jupyter contrib nbextension install --system && \
@@ -59,5 +62,8 @@ RUN jt -t onedork -fs 125 -tfs 11 -nfs 115 -cellw 88% -T
 
 # Remove font cache
 RUN rm -rf /home/jovyan/.cache/matplotlib/fontlist-v330.json
+
+# Install PyQt6
+RUN pip install PyQt6==6.9.1
 
 CMD ["bash"]
